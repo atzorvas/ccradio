@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  server: MyString
-  mount: MyString
+rock:
+  title: Rock
+  server: http://server.com:8000/
+  mount: live0
 
-two:
-  title: MyString
-  server: MyString
-  mount: MyString
+jazz:
+  title: Jazz
+  server: http://server.com:9000/
+  mount: live1
