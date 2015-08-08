@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @stream.title
+p
+  strong Server:
+  = @stream.server
+p
+  strong Mount:
+  = @stream.mount
+
+= link_to 'Edit', edit_stream_path(@stream)
+'|
+= link_to 'Back', streams_path

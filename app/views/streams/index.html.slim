@@ -1,0 +1,25 @@
+h1 Listing streams
+
+table.table.table-stripped
+  thead
+    tr
+      th Title
+      th Server
+      th Mount
+      th
+      th
+      th
+
+  tbody
+    - @streams.each do |stream|
+      tr
+        td = stream.title
+        td = stream.server
+        td = stream.mount
+        td = link_to 'Show', stream
+        td = link_to 'Edit', edit_stream_path(stream)
+        td = link_to 'Destroy', stream, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Stream', new_stream_path
