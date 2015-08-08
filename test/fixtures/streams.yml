@@ -9,3 +9,13 @@ jazz:
   title: Jazz
   server: http://server.com:9000/
   mount: live1
+
+one:
+  title: One
+  server: http://one.com:8000/
+  mount: live
+
+two:
+  title: Two
+  server: http://two.com:9000/
+  mount: live
