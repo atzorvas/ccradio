@@ -26,6 +26,15 @@ class StreamsControllerTest < ActionController::TestCase
     assert_redirected_to stream_path(assigns(:stream))
   end
 
+  test "should not create invalid stream" do
+    puts Stream.count
+    post :create, stream: { mount: @stream.mount,
+                            server: @stream.server,
+                            title: @stream.title }
+    assert_template :new
+    assert_select "#error_explanation ul li", 2
+  end
+
   test "should show stream" do
     get :show, id: @stream
     assert_response :success
@@ -39,6 +48,12 @@ class StreamsControllerTest < ActionController::TestCase
   test "should update stream" do
     patch :update, id: @stream, stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
     assert_redirected_to stream_path(assigns(:stream))
+  end
+
+  test "should not update stream if invalid" do
+    patch :update, id: streams(:rock), stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
+    assert_template :edit
+    assert_select "#error_explanation ul li", 2
   end
 
   test "should destroy stream" do
