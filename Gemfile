@@ -45,3 +45,4 @@ end
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem "codeclimate-test-reporter", group: :test, require: nil
