@@ -18,7 +18,9 @@ class StreamsControllerTest < ActionController::TestCase
 
   test "should create stream" do
     assert_difference('Stream.count') do
-      post :create, stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
+      post :create, stream: { mount: '/live',
+                              server: 'http://server.com:8888',
+                              title: 'Accid' }
     end
 
     assert_redirected_to stream_path(assigns(:stream))
