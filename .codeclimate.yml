@@ -1,16 +1,14 @@
-languages:
-  Ruby: true
-  JavaScript: true
-  PHP: true
-  Python: true
+# http://docs.codeclimate.com/article/296-engines-available-engines
 engines:
+  bundler-audit:
+    enabled: true
   rubocop:
     enabled: true
-  golint:
-    enabled: true
-  gofmt:
+  coffeelint:
     enabled: true
   eslint:
     enabled: true
   csslint:
+    enabled: true
+  fixme:
     enabled: true

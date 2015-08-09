@@ -27,7 +27,6 @@ class StreamsControllerTest < ActionController::TestCase
   end
 
   test "should not create invalid stream" do
-    puts Stream.count
     post :create, stream: { mount: @stream.mount,
                             server: @stream.server,
                             title: @stream.title }
