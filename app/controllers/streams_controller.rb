@@ -1,5 +1,6 @@
 class StreamsController < ApplicationController
   before_action :set_stream, only: [:show, :edit, :update, :destroy, :playlist]
+  before_action :authenticate_admin, :except => [:show, :index, :playlist]
 
   # GET /streams
   # GET /streams.json
