@@ -46,7 +46,7 @@ class StreamsControllerTest < ActionController::TestCase
 
   test "should update stream" do
     patch :update, id: @stream, stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
-    assert_redirected_to stream_path(assigns(:stream))
+    assert_redirected_to @stream
   end
 
   test "should not update stream if invalid" do

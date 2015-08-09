@@ -16,10 +16,10 @@ one:
   id: 3
   title: One
   server: http://stream.creativecommons.gr:8000/
-  mount: live
+  mount: live2
 
 two:
   id: 4
   title: Two
   server: http://stream.creativecommons.gr:8000/
-  mount: live
+  mount: live3
