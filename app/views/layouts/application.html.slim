@@ -9,5 +9,7 @@ html
   body
     = render 'layouts/nav'
     .container
+      - flash.each do |name, msg|
+        div class="alert #{bootstrap_class_for(name)}" = msg
       .row
         = yield
