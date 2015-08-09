@@ -17,3 +17,12 @@ streams.each do |mountId, title|
                  mount: "/live#{mountId}",
                  server: "http://stream.creativecommons.gr:8000/")
 end
+
+# Seed Roles
+['registered', 'admin'].each do |role|
+  Role.find_or_create_by({name: role})
+end
+
+User.create!(:email => 'antonis@tzorvas.com',
+             :password => 'adminpass',
+             :password_confirmation => 'adminpass')

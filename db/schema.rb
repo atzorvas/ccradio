@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809122530) do
+ActiveRecord::Schema.define(version: 20150809122828) do
 
   create_table "playlist_items", force: :cascade do |t|
     t.integer  "stream_id"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20150809122530) do
   end
 
   add_index "playlist_items", ["stream_id"], name: "index_playlist_items_on_stream_id"
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "streams", force: :cascade do |t|
     t.string   "title"
@@ -43,9 +49,11 @@ ActiveRecord::Schema.define(version: 20150809122530) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end

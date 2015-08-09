@@ -7,18 +7,20 @@ table.table.table-stripped
       th Server
       th Mount
       th
-      th
-      th
+      - if current_user
+        th
+        th
 
   tbody
     - @streams.each do |stream|
       tr
-        td = stream.title
+        td = link_to stream.title, stream
         td = stream.server
         td = stream.mount
         td = link_to 'Show', stream
-        td = link_to 'Edit', edit_stream_path(stream)
-        td = link_to 'Destroy', stream, data: {:confirm => 'Are you sure?'}, :method => :delete
+        - if current_user
+          td = link_to 'Edit', edit_stream_path(stream)
+          td = link_to 'Destroy', stream, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
