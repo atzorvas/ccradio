@@ -28,14 +28,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the
-  # background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
-gem 'slim-rails'
-gem 'bootstrap-sass'
 gem 'codeclimate-test-reporter', group: :test, require: nil
 gem 'rails_best_practices', group: :development
+
+gem 'slim-rails'
+gem 'bootstrap-sass'
 gem 'nokogiri'
+gem 'devise'
