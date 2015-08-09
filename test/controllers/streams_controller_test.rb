@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class StreamsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @stream = streams(:one)
   end
@@ -12,11 +13,13 @@ class StreamsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_in :user, users(:admin)
     get :new
     assert_response :success
   end
 
   test "should create stream" do
+    sign_in :user, users(:admin)
     assert_difference('Stream.count') do
       post :create, stream: { mount: '/live',
                               server: 'http://server.com:8888',
@@ -27,6 +30,7 @@ class StreamsControllerTest < ActionController::TestCase
   end
 
   test "should not create invalid stream" do
+    sign_in :user, users(:admin)
     post :create, stream: { mount: @stream.mount,
                             server: @stream.server,
                             title: @stream.title }
@@ -39,28 +43,56 @@ class StreamsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
+  test "admin: should get edit" do
+    sign_in :user, users(:admin)
     get :edit, id: @stream
     assert_response :success
   end
 
-  test "should update stream" do
+  test "registered: should not get edit" do
+    sign_in :user, users(:registered)
+    get :edit, id: @stream
+    assert_redirected_to root_path
+    assert_equal flash[:alert], "Access Denied"
+  end
+
+  test "admin: should update stream" do
+    sign_in :user, users(:admin)
     patch :update, id: @stream, stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
     assert_redirected_to @stream
   end
 
-  test "should not update stream if invalid" do
+  test "registered: should not update stream" do
+    sign_in :user, users(:registered)
+    patch :update, id: @stream, stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
+    assert_redirected_to root_path
+    assert_equal flash[:alert], "Access Denied"
+  end
+
+  test "admin: should not update stream if invalid" do
+    sign_in :user, users(:admin)
     patch :update, id: streams(:rock), stream: { mount: @stream.mount, server: @stream.server, title: @stream.title }
     assert_template :edit
     assert_select "#error_explanation ul li", 2
   end
 
-  test "should destroy stream" do
+  test "admin: should destroy stream" do
+    sign_in :user, users(:admin)
     assert_difference('Stream.count', -1) do
       delete :destroy, id: @stream
     end
 
     assert_redirected_to streams_path
+  end
+
+  test "registered: should destroy stream" do
+    sign_in :user, users(:registered)
+    assert_difference('Stream.count', 0) do
+      delete :destroy, id: @stream
+    end
+
+    assert_redirected_to root_path
+    assert_equal flash[:alert], "Access Denied"
   end
 
   test "should get playlist in json" do
