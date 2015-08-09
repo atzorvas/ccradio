@@ -4,6 +4,35 @@ engines:
     enabled: true
   rubocop:
     enabled: true
+    checks:
+
+      Rubocop/inherit_from: .rubocop_todo.yml
+
+      Rubocop/Metrics/ClassLength:
+        enabled: true
+        CountComments: false
+        Max: 100
+
+      Rubocop/AllCops:
+        Exclude:
+          - db/schema.rb
+          - db/migrate/*
+          - bin/*
+          - vendor/**/*
+        RunRailsCops: true
+
+      Style/EmptyLinesAroundBlockBody:
+        Enabled: false
+
+      Style/EmptyLinesAroundModuleBody:
+        Enabled: false
+
+      Style/EmptyLinesAroundClassBody:
+        Enabled: false
+
+      Style/EmptyLinesAroundMethodBody:
+        Enabled: false
+
   coffeelint:
     enabled: true
   eslint:

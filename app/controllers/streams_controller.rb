@@ -28,11 +28,13 @@ class StreamsController < ApplicationController
 
     respond_to do |format|
       if @stream.save
-        format.html { redirect_to @stream, notice: 'Stream was successfully created.' }
+        format.html { redirect_to @stream,
+                      notice: 'Stream was successfully created.' }
         format.json { render :show, status: :created, location: @stream }
       else
         format.html { render :new }
-        format.json { render json: @stream.errors, status: :unprocessable_entity }
+        format.json { render json: @stream.errors,
+                      status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +44,13 @@ class StreamsController < ApplicationController
   def update
     respond_to do |format|
       if @stream.update(stream_params)
-        format.html { redirect_to @stream, notice: 'Stream was successfully updated.' }
+        format.html { redirect_to @stream,
+                      notice: 'Stream was successfully updated.' }
         format.json { render :show, status: :ok, location: @stream }
       else
         format.html { render :edit }
-        format.json { render json: @stream.errors, status: :unprocessable_entity }
+        format.json { render json: @stream.errors,
+                      status: :unprocessable_entity }
       end
     end
   end
@@ -56,18 +60,20 @@ class StreamsController < ApplicationController
   def destroy
     @stream.destroy
     respond_to do |format|
-      format.html { redirect_to streams_url, notice: 'Stream was successfully destroyed.' }
+      format.html { redirect_to streams_url,
+                    notice: 'Stream was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_stream
     @stream = Stream.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet.
   def stream_params
     params.require(:stream).permit(:title, :server, :mount)
   end
