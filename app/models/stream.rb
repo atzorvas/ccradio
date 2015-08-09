@@ -28,15 +28,11 @@ class Stream < ActiveRecord::Base
     song = get_current_song(page)
     @song = fix_song_title(song)
     # save it
-    save_song if new_song?
+    save_song
   end
 
   def save_song
     self.playlist_items.create(song: @song)
-  end
-
-  def new_song?
-    @song != get_last_song
   end
 
   def fix_song_title song
@@ -53,10 +49,6 @@ class Stream < ActiveRecord::Base
 
   def get_url
     URI.join(self.server, "status.xsl?mount=#{self.mount}").to_s
-  end
-
-  def get_last_song
-    self.playlist_items.any? && self.playlist_items.last || nil
   end
 
 end

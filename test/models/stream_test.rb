@@ -31,4 +31,26 @@ class StreamTest < ActiveSupport::TestCase
     assert stream.invalid?
     assert stream.errors[:mount].any?
   end
+
+  test "stream playlist history populated correctly" do
+    assert_equal streams(:rock).playlist_items.count, 2
+  end
+
+  test "should not insert in the playlist the same song twice in a row" do
+    stream = streams(:jazz)
+    assert_difference 'stream.playlist_items.count' do
+      stream.playlist_items.create(song: "Jazz Song")
+    end
+    playlist_item = stream.playlist_items.build(song: "Jazz Song")
+    assert playlist_item.invalid?
+  end
+
+  test "should allow same song twice in a playlist, if not in a row" do
+    stream = streams(:rock)
+    assert_equal stream.playlist_items.count, 2
+    playlist_item = stream.playlist_items.build(
+      song: stream.playlist_items.first
+    )
+    assert playlist_item.valid?
+  end
 end

@@ -1,21 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 rock:
+  id: 1
   title: Rock
   server: http://server.com:8000/
   mount: live0
 
 jazz:
+  id: 2
   title: Jazz
   server: http://server.com:9000/
   mount: live1
 
 one:
+  id: 3
   title: One
   server: http://one.com:8000/
   mount: live
 
 two:
+  id: 4
   title: Two
   server: http://two.com:9000/
   mount: live
