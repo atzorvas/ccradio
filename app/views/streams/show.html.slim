@@ -27,4 +27,4 @@ table.table.table-bordered
 - if current_user && current_user.is_admin?
   = link_to 'Edit', edit_stream_path(@stream)
   '|
-= button_to 'Back', streams_path, class: "btn btn-primary"
+= button_to 'Back', streams_path, method: :get, class: "btn btn-primary"
