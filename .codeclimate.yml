@@ -4,16 +4,6 @@ engines:
     enabled: true
   rubocop:
     enabled: true
-    # ... CONFIG CONTENT ...
-    checks:
-      Rubocop/Metrics/LineLength:
-        enabled: false
-      Rubocop/Style/NumericLiterals:
-        enabled: false
-      Rubocop/Style/SingleSpaceBeforeFirstArg:
-        enabled: false
-      Rubocop/Style/StringLiterals:
-        enabled: false
   coffeelint:
     enabled: true
   eslint:
