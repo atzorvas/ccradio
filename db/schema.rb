@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808193916) do
+ActiveRecord::Schema.define(version: 20150809093427) do
+
+  create_table "playlist_items", force: :cascade do |t|
+    t.integer  "stream_id"
+    t.string   "song"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "playlist_items", ["stream_id"], name: "index_playlist_items_on_stream_id"
 
   create_table "streams", force: :cascade do |t|
     t.string   "title"
