@@ -36,5 +36,6 @@ end
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
-gem "codeclimate-test-reporter", group: :test, require: nil
-gem "rails_best_practices", group: :development
+gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'rails_best_practices', group: :development
+gem 'nokogiri'
