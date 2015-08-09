@@ -62,11 +62,16 @@ class StreamsController < ApplicationController
   end
 
   def playlist
-    render :json => {
-      genre: @stream.title,
-      url: @stream.url,
-      history: @stream.playlist_items.order("created_at DESC")
-    }
+    respond_to do |format|
+      format.json {
+        render :json => {
+          genre: @stream.title,
+          url: @stream.url,
+          history: @stream.playlist_items.order("created_at DESC")
+        }
+      }
+      format.html { redirect_to @stream }
+    end
   end
 
   private
