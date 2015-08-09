@@ -1,5 +1,5 @@
 class StreamsController < ApplicationController
-  before_action :set_stream, only: [:show, :edit, :update, :destroy]
+  before_action :set_stream, only: [:show, :edit, :update, :destroy, :playlist]
 
   # GET /streams
   # GET /streams.json
@@ -61,10 +61,18 @@ class StreamsController < ApplicationController
     end
   end
 
+  def playlist
+    render :json => {
+      genre: @stream.title,
+      url: @stream.url,
+      history: @stream.playlist_items.order("created_at DESC")
+    }
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_stream
-    @stream = Stream.find(params[:id])
+    @stream = Stream.find(params[:id] || params[:stream_id])
   end
 
   # Never trust parameters from the scary internet.

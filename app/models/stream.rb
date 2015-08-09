@@ -12,6 +12,14 @@ class Stream < ActiveRecord::Base
     puts "Done"
   end
 
+  def url
+    self.get_url
+  end
+
+  def current_song
+    self.get_last_song
+  end
+
   protected
 
   def sync_latest_song

@@ -1,14 +1,25 @@
 p#notice = notice
 
-p
-  strong Title:
-  = @stream.title
-p
-  strong Server:
-  = @stream.server
-p
-  strong Mount:
-  = @stream.mount
+table.table.table-bordered
+  thead
+    tr
+      th Genre
+      th URl
+  tbody
+    tr
+      td = @stream.title
+      td = URI.join(@stream.server, @stream.mount)
+
+table.table.table-hover.table-stripped
+  thead
+    tr
+      th Song
+      th Date
+  tbody
+  - @stream.playlist_items.order("created_at DESC").each do |song|
+    tr
+      td = song.song
+      td = song.created_at
 
 = link_to 'Edit', edit_stream_path(@stream)
 '|
