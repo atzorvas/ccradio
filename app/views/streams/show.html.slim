@@ -10,17 +10,21 @@ table.table.table-bordered
       td = @stream.title
       td = URI.join(@stream.server, @stream.mount)
 
-table.table.table-hover.table-stripped
-  thead
-    tr
-      th Song
-      th Date
-  tbody
-  - @stream.playlist_items.order("created_at DESC").each do |song|
-    tr
-      td = song.song
-      td = song.created_at
+- if @stream.playlist_items.any?
+  table.table.table-hover.table-stripped
+    thead
+      tr
+        th Song
+        th Date
+    tbody
+    - @stream.playlist_items.order("created_at DESC").each do |song|
+      tr
+        td = song.song
+        td = song.created_at
+- else
+  .alert.alert-info no playlist history
 
-= link_to 'Edit', edit_stream_path(@stream)
-'|
-= link_to 'Back', streams_path
+- if current_user && current_user.is_admin?
+  = link_to 'Edit', edit_stream_path(@stream)
+  '|
+= button_to 'Back', streams_path, class: "btn btn-primary"
