@@ -5,34 +5,9 @@ engines:
   rubocop:
     enabled: true
     checks:
-
       Rubocop/inherit_from: .rubocop_todo.yml
-
-      Rubocop/Metrics/ClassLength:
-        enabled: true
-        CountComments: false
-        Max: 100
-
-      Rubocop/AllCops:
-        Exclude:
-          - db/schema.rb
-          - db/migrate/*
-          - bin/*
-          - vendor/**/*
-        RunRailsCops: true
-
-      Style/EmptyLinesAroundBlockBody:
-        Enabled: false
-
-      Style/EmptyLinesAroundModuleBody:
-        Enabled: false
-
-      Style/EmptyLinesAroundClassBody:
-        Enabled: false
-
-      Style/EmptyLinesAroundMethodBody:
-        Enabled: false
-
+      Rubocop/AllCops/RunRailsCops:
+        enable: true
   coffeelint:
     enabled: true
   eslint:
@@ -41,3 +16,14 @@ engines:
     enabled: true
   fixme:
     enabled: true
+ratings:
+   paths:
+   - app/**
+   - lib/**
+   - test/**
+   - "**.rb"
+   - config.ru
+   - Gemfile
+exclude_paths:
+- spec/**/*
+- vendor/**/*
