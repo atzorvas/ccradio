@@ -62,4 +62,15 @@ class StreamsControllerTest < ActionController::TestCase
 
     assert_redirected_to streams_path
   end
+
+  test "should get playlist in json" do
+    get :playlist, stream_id: streams(:rock), format: :json
+    assert_response :success
+    assert_equal JSON.parse(response.body)["history"].count, 2
+  end
+
+  test "should redirect get playlist if not json" do
+    get :playlist, stream_id: @stream
+    assert_redirected_to @stream
+  end
 end

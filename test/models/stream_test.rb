@@ -53,4 +53,10 @@ class StreamTest < ActiveSupport::TestCase
     )
     assert playlist_item.valid?
   end
+
+  test "sync_playlists does work" do
+    assert_difference 'PlaylistItem.count' do
+      Stream.sync_playlists
+    end
+  end
 end
