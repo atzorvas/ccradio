@@ -16,10 +16,6 @@ class Stream < ActiveRecord::Base
     self.get_url
   end
 
-  def current_song
-    self.get_last_song
-  end
-
   protected
 
   def sync_latest_song
