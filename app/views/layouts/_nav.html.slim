@@ -1,0 +1,21 @@
+nav.navbar.navbar-default.navbar-static-top
+  .container
+    .navbar-header
+      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href="#{root_path}" ccradio
+    .collapse.navbar-collapse
+      / ul.nav.navbar-nav
+      ul.nav.navbar-nav.navbar-right
+        li
+          a href="#"  Contact
+        li
+          a href="#"  About
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            span> Account
+            span.caret
+          ul.dropdown-menu
+            = render 'layouts/nav_account'
