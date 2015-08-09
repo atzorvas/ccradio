@@ -4,10 +4,6 @@ engines:
     enabled: true
   rubocop:
     enabled: true
-    checks:
-      Rubocop/inherit_from: .rubocop_todo.yml
-      Rubocop/AllCops/RunRailsCops:
-        enable: true
   coffeelint:
     enabled: true
   eslint:
