@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  def is_admin?
+    self.role && self.role.name == 'admin'
+  end
+
   private
 
   def set_default_role
