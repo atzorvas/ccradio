@@ -25,4 +25,5 @@ end
 
 User.create!(:email => 'antonis@tzorvas.com',
              :password => 'adminpass',
-             :password_confirmation => 'adminpass')
+             :password_confirmation => 'adminpass',
+             :role => Role.find_by({name: 'admin'}))
