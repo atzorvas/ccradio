@@ -11,10 +11,8 @@ class Stream < ActiveRecord::Base
   end
 
   def self.sync_playlists
-    enabled.each {|stream| stream.send(:sync_latest_song)}
+    enabled.map(&:sync_latest_song)
   end
-
-  protected
 
   def sync_latest_song
     require 'open-uri'
@@ -23,6 +21,8 @@ class Stream < ActiveRecord::Base
     @song = fix_song_title(song)
     save_song
   end
+
+  protected
 
   def save_song
     self.playlist_items.create(song: @song)
