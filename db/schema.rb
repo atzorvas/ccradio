@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150812084949) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "playlist_items", force: :cascade do |t|
     t.integer  "stream_id"
     t.string   "song"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150812084949) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "playlist_items", ["stream_id"], name: "index_playlist_items_on_stream_id"
+  add_index "playlist_items", ["stream_id"], name: "index_playlist_items_on_stream_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -53,8 +56,10 @@ ActiveRecord::Schema.define(version: 20150812084949) do
     t.integer  "role_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["role_id"], name: "index_users_on_role_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
+  add_foreign_key "playlist_items", "streams"
+  add_foreign_key "users", "roles"
 end
