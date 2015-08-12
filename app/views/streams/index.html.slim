@@ -24,4 +24,7 @@ table.table.table-stripped
 
 br
 
-= link_to 'New Stream', new_stream_path
+- if current_user && current_user.is_admin?
+  = link_to 'New Stream', new_stream_path
+- else
+  = link_to 'Suggest Stream', '#'
