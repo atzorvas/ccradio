@@ -3,7 +3,7 @@
 staging:
   :concurrency: 10
 production:
-  :concurrency: 10 # 20
+  :concurrency: 10
 :queues:
   - default
   - [streams, 2]
