@@ -60,7 +60,7 @@ class StreamTest < ActiveSupport::TestCase
 
   test "sync_playlists calls sync_latest_song for each item" do # TODO slow test
     stream = Minitest::Mock.new
-    stream.expect :sync_latest_song, true
+    stream.expect :sync_latest_song, nil
 
     Stream.stub :enabled, [stream] do
       assert Stream.enabled.count, 1
