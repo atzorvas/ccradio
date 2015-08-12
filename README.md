@@ -4,21 +4,39 @@
 
 ---
 
-## Demo
-http://ccradio.tzorvas.com/
+## About
+- Inspired by [ccradio.ellak.gr](https://ccradio.ellak.gr/), as the codebase of the original app was old and difficult to update, and because I love Rails, I decided to start this app as a replacement.  
 
-
-## Status
-Under Construction!
+## Info
+- Version 0.1.0  
+- project status: under active development  
+- demo site: http://ccradio.tzorvas.com/  
 
 ## TODO
- # Make it nice-looking
- # Add Station Suggest Form, for anonymous/registered users
+- [ ] Apply some styling <small>I know it's ugly, but this isn't my main concern for the time being</small>
+- [ ] Add Stream Suggest Form, for anonymous/registered users
+  - [ ] suggested streams must be reviewed & polished by admins before published
+- [ ] Audio player @home screen (currently only in each station page)
+- [ ] Add integration tests
+- [ ] Public API
+- [ ] Crawler / Automated process to search for new streams with CC-friendly content
+- [suggest another](https://github.com/atzorvas/ccradio/issues/new)
 
 ## Contribute
-- Use issues to suggest ideas or report any problems
-- Suggest a Pull Request if you want
+- [suggest](https://github.com/atzorvas/ccradio/issues/new) ideas or [report](https://github.com/atzorvas/ccradio/issues/new) any problems
+- [Fork](https://github.com/atzorvas/ccradio/edit/master/README.md#fork-destination-box), develop and create a [Pull Request](https://github.com/atzorvas/ccradio/compare) if you want
+- Suggest a new station creating an [issue](https://github.com/atzorvas/ccradio/issues/new) - or later via the site.
 
-## About
-This is mainly a replacement for https://ccradio.ellak.gr/
-more info soon.
+## Software Stack
+- Rails ofc.
+- Redis
+
+## Gems
+- Nokogiri for parsing stream data (current song)
+- Sidekiq & Sidekiq-scheduler for delayed jobs and background tasks (with Redis server)
+- jquery-visibility-rails (Page Visibility API wrapper; when document isn't focused, there is no need to auto-update "now playing" content)
+- slim-rails for html templates
+- Devise for authentication stuff
+
+## License
+Licensed under MIT license. 
