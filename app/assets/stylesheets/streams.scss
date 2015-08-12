@@ -5,5 +5,12 @@
 .playlist {
   tbody tr:first-child {
     color: red;
+    background-color: #66DBE3;
+    td:first-child:before {
+      font-family: "Glyphicons Halflings";
+      content: "\e002";
+      float: left;
+      margin-right: 6px;
+    }
   }
 }
