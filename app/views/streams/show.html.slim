@@ -1,6 +1,9 @@
 p#notice = notice
 
-table.table.table-bordered
+.play
+  audio src="#{@stream.url_play}" controls="" preload="preload" autoplay="true"
+
+table.table.table-bordered.station-info data-url="#{stream_current_song_path @stream}"
   thead
     tr
       th Genre
@@ -11,16 +14,16 @@ table.table.table-bordered
       td = URI.join(@stream.server, @stream.mount)
 
 - if @stream.playlist_items.any?
-  table.table.table-hover.table-stripped
+  table.table.table-hover.table-stripped.playlist
     thead
       tr
         th Song
         th Date
     tbody
-    - @stream.playlist_items.order("created_at DESC").each do |song|
-      tr
-        td = song.song
-        td = song.created_at
+      - @stream.playlist_items.order("created_at DESC").each do |song|
+        tr
+          td = song.song
+          td = song.created_at
 - else
   .alert.alert-info no playlist history
 

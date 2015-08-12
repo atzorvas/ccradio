@@ -1,6 +1,6 @@
 class StreamsController < ApplicationController
-  before_action :set_stream, only: [:show, :edit, :update, :destroy, :playlist]
-  before_action :authenticate_admin, :except => [:show, :index, :playlist]
+  before_action :set_stream, only: [:show, :edit, :update, :destroy, :playlist, :current_song]
+  before_action :authenticate_admin, :except => [:show, :index, :playlist, :current_song]
 
   # GET /streams
   # GET /streams.json
@@ -67,10 +67,18 @@ class StreamsController < ApplicationController
       format.json {
         render :json => {
           genre: @stream.title,
-          url: @stream.url,
+          url: @stream.url_play,
           history: @stream.playlist_items.order("created_at DESC")
         }
       }
+      format.html { redirect_to @stream }
+    end
+  end
+
+  def current_song
+    item = @stream.playlist_items.last
+    respond_to do |format|
+      format.json { render :json => { song: item.song, created_at: item.created_at } }
       format.html { redirect_to @stream }
     end
   end

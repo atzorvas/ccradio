@@ -6,8 +6,12 @@ class Stream < ActiveRecord::Base
                                   message: "should exist once per server" }
   scope :enabled, -> { where(enabled: true) }
 
-  def url # returns full url
-    self.get_url
+  def url_status # returns full url
+    self.get_url_status
+  end
+
+  def url_play
+    self.get_url_play
   end
 
   def self.sync_playlists
@@ -16,7 +20,7 @@ class Stream < ActiveRecord::Base
 
   def sync_latest_song
     require 'open-uri'
-    page = open_url(self.get_url)
+    page = open_url(self.get_url_status)
     song = get_current_song(page)
     @song = fix_song_title(song)
     save_song
@@ -40,8 +44,12 @@ class Stream < ActiveRecord::Base
     Nokogiri::HTML.parse open(url).read
   end
 
-  def get_url
+  def get_url_status
     URI.join(self.server, "status.xsl?mount=#{self.mount}").to_s
+  end
+
+  def get_url_play
+    URI.join(self.server, self.mount).to_s
   end
 
 end
