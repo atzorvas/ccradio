@@ -6,3 +6,5 @@ addons:
     repo_token: dfa6a9e522839bb8b779cc43d97ef8556db9f8c339476038ba3acbcd0185c28e
 sudo: false
 cache: bundler
+before_script:
+  - cp config/database.yml.travis config/database.yml
