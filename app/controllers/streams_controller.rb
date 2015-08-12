@@ -79,7 +79,7 @@ class StreamsController < ApplicationController
     puts "called"
     item = @stream.playlist_items.last
     respond_to do |format|
-      format.json { render :json => { song: item.song, created_at: item.created_at } if song }
+      format.json { render :json => { song: item.song, created_at: item.created_at } }
       format.html { redirect_to @stream }
     end
   end
