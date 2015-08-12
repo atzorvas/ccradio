@@ -38,6 +38,12 @@ group :test do
   gem 'webmock'
 end
 
+group :prodution do
+  gem 'puma'
+  gem 'foreman'
+  gem 'rails_12factor'
+end
+
 gem 'rails_best_practices', group: :development
 
 gem 'slim-rails'
