@@ -1,5 +1,7 @@
 require 'sidekiq'
 
+ENV["REDISTOGO_URL"] ||= "http://localhost:6379"
+
 Sidekiq.configure_client do |config|
   config.redis = { :size => 1 }
 end
