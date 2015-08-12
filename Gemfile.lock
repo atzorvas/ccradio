@@ -50,6 +50,8 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    celluloid (0.16.1)
+      timers (~> 4.0.0)
     code_analyzer (0.4.5)
       sexp_processor
     codeclimate-test-reporter (0.4.7)
@@ -63,6 +65,7 @@ GEM
     coffee-script-source (1.9.1.1)
     colored (1.2)
     columnize (0.9.0)
+    connection_pool (2.2.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
@@ -78,6 +81,7 @@ GEM
     execjs (2.5.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hitimes (1.2.2)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -102,6 +106,8 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.3)
@@ -139,10 +145,14 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    redis (3.2.1)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     require_all (1.3.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     ruby-progressbar (1.7.5)
+    rufus-scheduler (3.1.3)
     safe_yaml (1.0.4)
     sass (3.4.16)
     sass-rails (5.0.3)
@@ -155,11 +165,26 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.6.0)
+    sidekiq (3.4.2)
+      celluloid (~> 0.16.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      json (~> 1.0)
+      redis (~> 3.2, >= 3.2.1)
+      redis-namespace (~> 1.5, >= 1.5.2)
+    sidekiq-scheduler (1.1)
+      multi_json (~> 1)
+      redis (~> 3)
+      rufus-scheduler (~> 3)
+      sidekiq (~> 3, >= 2.12)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -181,6 +206,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -217,6 +244,9 @@ DEPENDENCIES
   rails_best_practices
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sidekiq
+  sidekiq-scheduler
+  sinatra
   slim-rails
   spring
   sqlite3

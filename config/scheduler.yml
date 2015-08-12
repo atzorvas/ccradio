@@ -1,0 +1,5 @@
+update_streams_playlists:
+  every: ["5s", first_in: '20s']
+  class: StreamWorker
+  queue: streams
+  description: "This job will update stream playlists, every 5 seconds after 20 seconds after start"

@@ -31,14 +31,19 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'codeclimate-test-reporter', group: :test, require: nil
-gem 'mocha', group: :test
-gem 'vcr', group: :test
-gem 'webmock', group: :test
-gem 'rails_best_practices', group: :development
+group :test do
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'mocha'
+  gem 'vcr'
+  gem 'webmock'
+end
 
+gem 'rails_best_practices', group: :development
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'nokogiri'
 gem 'devise'
+gem 'sidekiq'
+gem 'sinatra'
+gem 'sidekiq-scheduler'
