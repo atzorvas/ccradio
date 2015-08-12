@@ -54,9 +54,25 @@ class StreamTest < ActiveSupport::TestCase
     assert playlist_item.valid?
   end
 
-  test "sync_playlists does work" do # TODO slow test
-    assert_difference 'PlaylistItem.count' do
+  test "should return only enabled streams" do
+    assert_equal Stream.enabled.count, 3
+  end
+
+  test "sync_playlists calls sync_latest_song for each item" do # TODO slow test
+    stream = Minitest::Mock.new
+    stream.expect :sync_latest_song, true
+
+    Stream.stub :enabled, [stream] do
+      assert Stream.enabled.count, 1
       Stream.sync_playlists
+    end
+  end
+
+  test "sync_latest_item gets a song" do
+    VCR.use_cassette('get_latest_song_rock') do
+      assert_difference 'PlaylistItem.count' do
+        streams(:rock).send(:sync_latest_song)
+      end
     end
   end
 end

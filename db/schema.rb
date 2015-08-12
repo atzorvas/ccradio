@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150809122828) do
+ActiveRecord::Schema.define(version: 20150812084949) do
 
   create_table "playlist_items", force: :cascade do |t|
     t.integer  "stream_id"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20150809122828) do
     t.string   "title"
     t.string   "server"
     t.string   "mount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "enabled",    default: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,16 +4,14 @@ class Stream < ActiveRecord::Base
   validates :title, uniqueness: true
   validates :mount, uniqueness: { scope: :server,
                                   message: "should exist once per server" }
+  scope :enabled, -> { where(enabled: true) }
 
-  def self.sync_playlists
-    Stream.all.each do |stream|
-      stream.send(:sync_latest_song)
-    end
-    puts "Done"
+  def url # returns full url
+    self.get_url
   end
 
-  def url
-    self.get_url
+  def self.sync_playlists
+    enabled.each {|stream| stream.send(:sync_latest_song)}
   end
 
   protected
@@ -23,7 +21,6 @@ class Stream < ActiveRecord::Base
     page = open_url(self.get_url)
     song = get_current_song(page)
     @song = fix_song_title(song)
-    # save it
     save_song
   end
 
@@ -35,12 +32,12 @@ class Stream < ActiveRecord::Base
     song.gsub('_', ' ').gsub('-', ' - ')
   end
 
-  def get_current_song(doc)
+  def get_current_song doc
     doc.xpath('//td[contains(text(),"Current Song")]//following-sibling::td').text
   end
 
   def open_url url
-    Nokogiri::HTML.parse(open(url).read)
+    Nokogiri::HTML.parse open(url).read
   end
 
   def get_url

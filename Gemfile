@@ -32,7 +32,11 @@ group :development, :test do
 end
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
+gem 'mocha', group: :test
+gem 'vcr', group: :test
+gem 'webmock', group: :test
 gem 'rails_best_practices', group: :development
+
 
 gem 'slim-rails'
 gem 'bootstrap-sass'

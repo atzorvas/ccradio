@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://stream.creativecommons.gr:8000/status.xsl?mount=live0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '1075'
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Icecast Streaming Media Server</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
+        <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
+        <h2>Icecast2 Status</h2>
+        <br><div class="roundcont">
+        <div class="roundtop"><img src="/corner_topleft.jpg" class="corner" style="display: none"></div>
+        <table border="0" width="100%" id="table1" cellspacing="0" cellpadding="4"><tr><td bgcolor="#656565">
+        <a class="nav" href="admin/">Administration</a><a class="nav" href="status.xsl">Server Status</a><a class="nav" href="server_version.xsl">Version</a>
+        </td></tr></table>
+        <div class="roundbottom"><img src="/corner_bottomleft.jpg" class="corner" style="display: none"></div>
+        </div>
+        <br><br>&nbsp;
+
+
+        <div class="poster">Support icecast development at <a class="nav" target="_blank" href="http://www.icecast.org">www.icecast.org</a>
+        </div>
+        </body>
+        </html>
+    http_version: 
+  recorded_at: Wed, 12 Aug 2015 10:07:14 GMT
+recorded_with: VCR 2.9.3
