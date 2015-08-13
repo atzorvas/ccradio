@@ -1,0 +1,35 @@
+{
+  "name":"ccradio",
+  "description":"",
+  "scripts":{},
+  "env":{
+    "LANG":{
+      "required":true
+    },
+    "RACK_ENV":{
+      "required":true
+    },
+    "RAILS_ENV":{
+      "required":true
+    },
+    "RAILS_SERVE_STATIC_FILES":{
+      "required":true
+    },
+    "REDIS_PROVIDER":{
+      "required":true
+    },
+    "REDIS_URL":{
+      "required":true
+    },
+    "REDISGREEN_URL":{
+      "required":true
+    },
+    "SECRET_KEY_BASE":{
+      "required":true
+    }
+  },
+  "addons":[
+    "redistogo",
+    "heroku-postgresql"
+  ]
+}
