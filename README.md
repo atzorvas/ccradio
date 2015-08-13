@@ -14,9 +14,10 @@
 
 ## TODO
 - [ ] Apply some styling <small>I know it's ugly, but this isn't my main concern for the time being</small>
-- [ ] Add Stream Suggest Form, for anonymous/registered users
-  - [ ] suggested streams must be reviewed & polished by admins before published
+- [ ] Add Suggest Stream Form (Github API)
+- [ ] Add Feedback Form (Github API)
 - [ ] Audio player @home screen (currently only in each station page)
+ - [ ] Better-looking player
 - [ ] Add integration tests
 - [ ] Public API
 - [ ] Crawler / Automated process to search for new streams with CC-friendly content
