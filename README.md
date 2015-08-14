@@ -8,7 +8,7 @@
 - Inspired by [ccradio.ellak.gr](https://ccradio.ellak.gr/), as the codebase of the original app was old and difficult to update, and because I love Rails, I decided to start this app as a replacement.
 
 ## Info
-- Version 0.1.0
+- Version 0.2.0
 - project status: under active development
 - demo site: http://ccradio.tzorvas.com/
 
