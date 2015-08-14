@@ -48,11 +48,11 @@ gem 'rails_best_practices', group: :development
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'nokogiri'
 gem 'devise'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'sidekiq-scheduler'
 gem 'devise-async'
-gem 'jquery-visibility-rails'
-gem 'redis-rails'
+gem 'tubesock'

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
   root 'streams#index'
 
+  get "/stream_subscription" => "streams#subscription"
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 end

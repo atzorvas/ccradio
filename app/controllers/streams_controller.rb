@@ -1,6 +1,9 @@
 class StreamsController < ApplicationController
-  before_action :set_stream, only: [:show, :edit, :update, :destroy, :playlist, :current_song]
-  before_action :authenticate_admin, :except => [:show, :index, :playlist, :current_song]
+  before_action :set_stream,
+    only: [:show, :edit, :update, :destroy, :playlist, :current_song]
+  before_action :authenticate_admin,
+    :except => [:show, :index, :playlist, :current_song, :subscription]
+  include Tubesock::Hijack
 
   # GET /streams
   # GET /streams.json
@@ -81,6 +84,26 @@ class StreamsController < ApplicationController
     respond_to do |format|
       format.json { render :json => { song: item.song, created_at: item.created_at } }
       format.html { redirect_to @stream }
+    end
+  end
+
+  def subscription
+    hijack do |sock|
+      redis_thread = Thread.new do
+        Redis.new.subscribe "songs" do |on|
+          on.message do |_channel, song|
+            sock.send_data song
+          end
+        end
+      end
+
+      sock.onmessage do |m|
+        Redis.new.publish "songs", m
+      end
+
+      sock.onclose do
+        redis_thread.kill
+      end
     end
   end
 
