@@ -17,6 +17,14 @@ $ ->
           return
 
   if action == "show"
+    $('.play i').hide()
+    yourFn = ->
+      $('.play i').show()
+      $('audio').attr('src', $(".station-info td:nth-child(2)").text().trim())
+    setTimeout( yourFn, 1000 );
+    $("audio").on "play", ->
+      $('.play i').remove()
+
     stream_id = parseInt($(".station-info").attr('stream-id'))
     socket.onmessage = (event) ->
       if event.data.length
