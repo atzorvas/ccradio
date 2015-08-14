@@ -21,7 +21,7 @@ table.table.table-bordered.station-info data-url="#{stream_current_song_path @st
         th Song
         th Date
     tbody
-      - @stream.playlist_items.order("created_at DESC").each do |song|
+      - @stream.playlist_items.order("created_at DESC").limit(10).each do |song|
         tr
           td = song.song
           td = song.created_at
