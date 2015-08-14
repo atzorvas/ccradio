@@ -13,175 +13,209 @@
 //= require_tree .
 //= require_self
 //
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-body {
-  background-color: #ebe7df;
-  color: #333333;
-  font-family: "century gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-}
-
-.row h1 {
-  background: #418a95;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20;
-  margin-bottom: 0;
-  padding: 30 10;
-}
-
-.table {
-  box-shadow: 0 10 10 rgba(0, 0, 0, 0.2);
-  margin-bottom: 20;
-  max-width: 100%;
-  width: 100%;
-}
-
-.table tr {
-  border-top: 1px solid #ebe7df;
-}
-
-.table thead tr {
-  border-bottom: 1px solid #ebe7df;
-  border-top: 1px solid #63acb7;
-  background: #63acb7;
-  color: #fff;
-}
-
-.table thead tr:first-child {
-  border-top: none
-}
-
-.table tbody {
-  background: #ccc;
-}
-
-tr:nth-child(even) td {
-  background: linear-gradient(to bottom, #f2f1e8 0%, #f6f7ea 100%);
-}
-
-
-/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
-
-tr:nth-child(odd) td {
-  background: #FEFEFE;
-}
-
-.table>thead>tr>th,
-.table>thead>tr>td,
-.table>tbody>tr>th,
-.table>tbody>tr>td,
-.table>tfoot>tr>th,
-.table>tfoot>tr>td {
+//colors
+$color_green_white_approx: #ebe7df;
+$color_mine_shaft_approx: #333333;
+$color_wedgewood_approx: #418a95;
+$white: #fff;
+$black_20: rgba(0, 0, 0, 0.2);
+$color_tradewind_approx: #63acb7;
+$color_celeste_approx: #ccc;
+$color_merino_approx: #f2f1e8;
+$color_ecru_white_approx: #f6f7ea;
+$color_romance_approx: #fefefe;
+$color_alto_approx: #ddd;
+$color_fuscous_gray_approx: #535353;
+$black: #000;
+//fonts
+$font_0: century gothic;
+$font_1: Helvetica Neue;
+$font_2: Helvetica;
+$font_3: Arial;
+$font_4: sans-serif;
+$font_5: code light;
+$font_6: verdana;
+$font_7: arial;
+$font_8: helvetica;
+//@extend-elements
+//original selectors
+//.table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
+%extend_1 {
   line-height: 1.42857143;
   padding: 10;
   vertical-align: top;
 }
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+body {
+  background-color: $color_green_white_approx;
+  color: $color_mine_shaft_approx;
+  font-family: $font_0, $font_1, $font_2, $font_3, $font_4;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+.table {
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 10 10 $black_20;
+  margin-bottom: 20;
+  max-width: 100%;
+  width: 100%;
+  tr {
+    border-top: 1px solid $color_green_white_approx;
+  }
+  tbody {
+    background: $color_celeste_approx;
+  }
+  thead tr {
+    border-bottom: 1px solid $color_green_white_approx;
+    border-top: 1px solid $color_tradewind_approx;
+    background: $color_tradewind_approx;
+    color: $white;
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
+
+tr {
+  &:nth-child(even) td {
+    background: linear-gradient(to bottom, $color_merino_approx 0, $color_ecru_white_approx 100%);
+  }
+  &:nth-child(odd) td {
+    background: $color_romance_approx;
+  }
+}
+
 .table>thead>tr>th {
-  border-bottom: 2px solid #ddd;
+  @extend %extend_1;
+  border-bottom: 2px solid $color_alto_approx;
   text-transform: uppercase;
   vertical-align: bottom;
 }
 
+.table>thead>tr>td {
+  @extend %extend_1;
+}
+
+.table>tbody>tr>th {
+  @extend %extend_1;
+}
+
+.table>tbody>tr>td {
+  @extend %extend_1;
+}
+
+.table>tfoot>tr>th {
+  @extend %extend_1;
+}
+
+.table>tfoot>tr>td {
+  @extend %extend_1;
+}
+
 .btn-primary {
-  color: #fff;
-  background-color: #535353;
-  border-color: #ccc;
+  color: $white;
+  background-color: $color_fuscous_gray_approx;
+  border-color: $color_celeste_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 0;
-}
-
-.btn-primary:hover {
-  color: #fff;
-  background-color: #000;
-  border-color: #000;
-}
-
-.btn-primary:hover {
-  color: #fff;
-  background-color: #000;
-  border-color: #000;
+  &:hover {
+    color: $white;
+    background-color: $black;
+    border-color: $black;
+  }
 }
 
 .navbar-brand {
   float: left;
-  font-family: "code light", "century gothic", Arial, Helvetica, sans-serif;
+  font-family: $font_5, $font_0, $font_3, $font_2, $font_4;
   font-size: 28px;
   font-weight: bold;
   height: 50;
   line-height: 20;
   padding: 15px;
   text-transform: uppercase;
-}
-
-.navbar-brand span {
-  font-weight: normal;
-}
-
-.navbar-brand:hover,
-.navbar-brand:focus {
-  text-decoration: none;
-}
-
-.container a.navbar-brand:hover,
-.container a.navbar-brand:focus {
-  color: #fff;
+  span {
+    font-weight: normal;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 .navbar-default {
-  background-color: #535353;
-  border-color: #ccc;
-  box-shadow: 1px 1px 10 #000;
+  background-color: $color_fuscous_gray_approx;
+  border-color: $color_celeste_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 1px 1px 10 $black;
+  .navbar-brand {
+    color: $white;
+  }
+  .navbar-nav>li>a {
+    color: $white;
+    font-weight: bold;
+    &:hover {
+      color: $color_celeste_approx;
+      background-color: transparent;
+    }
+    &:focus {
+      color: $color_celeste_approx;
+      background-color: transparent;
+    }
+  }
 }
 
-.navbar-default .navbar-brand {
-  color: #fff
+p {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: #fff;
-  font-weight: bold;
+ol {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
 }
 
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus {
-  color: #ccc;
-  background-color: transparent
+ul {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
 }
 
-p,
-ol,
-ul,
 td {
-  font-family: "century gothic", verdana, arial, helvetica, sans-serif;
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
 }
 
-.navbar-default {
-  background-color: #535353;
-  border-color: #ccc;
-  box-shadow: 1px 1px 10 #000;
-}
-
-a:hover {
-  background-color: transparent;
-}
-
-a:active,
-a:hover {
-  outline: none;
+a {
+  &:hover {
+    background-color: transparent;
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
 }
 
 .row h1 {
-  background: #418a95;
-  color: #fff;
+  background: $color_wedgewood_approx;
+  color: $white;
   font-size: 20;
   font-weight: bold;
   margin-bottom: 0;
   padding: 30 10;
+}
+
+.container a.navbar-brand {
+  &:hover {
+    color: $white;
+  }
+  &:focus {
+    color: $white;
+  }
 }
