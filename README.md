@@ -14,13 +14,14 @@
 
 ## TODO
 - [ ] Apply some styling <small>I know it's ugly, but this isn't my main concern for the time being</small>
-- [ ] Add Suggest Stream Form (Github API)
-- [ ] Add Feedback Form (Github API)
+- [ ] Add Suggest Stream Form
+- [ ] Add Feedback Form
 - [ ] Audio player @home screen (currently only in each station page)
  - [ ] Better-looking player
 - [ ] Add integration tests
 - [ ] Public API
 - [ ] Crawler / Automated process to search for new streams with CC-friendly content
+- [x] replace ajax calls for 'now playing' sync process with websockets
 - [suggest another](https://github.com/atzorvas/ccradio/issues/new)
 
 ## Contribute
