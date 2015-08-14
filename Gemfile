@@ -48,6 +48,7 @@ gem 'rails_best_practices', group: :development
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'nokogiri'
 gem 'devise'
 gem 'sidekiq'
