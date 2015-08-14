@@ -13,8 +13,205 @@
 //= require_tree .
 //= require_self
 //
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+//colors
+$color_mine_shaft_approx: #333333;
+$color_green_white_approx: #ebe7df;
+$color_wedgewood_approx: #418a95;
+$white: #fff;
+$black_20: rgba(0, 0, 0, 0.2);
+$color_tradewind_approx: #63acb7;
+$color_celeste_approx: #ccc;
+$color_merino_approx: #f2f1e8;
+$color_ecru_white_approx: #f6f7ea;
+$color_romance_approx: #fefefe;
+$color_alto_approx: #ddd;
+$color_fuscous_gray_approx: #535353;
+$black: #000;
+//fonts
+$font_0: century gothic;
+$font_1: Helvetica Neue;
+$font_2: Helvetica;
+$font_3: Arial;
+$font_4: sans-serif;
+$font_5: code light;
+$font_6: verdana;
+$font_7: arial;
+$font_8: helvetica;
+//@extend-elements
+//original selectors
+//.table>thead>tr>th, .table>thead>tr>td, .table>tbody>tr>th, .table>tbody>tr>td, .table>tfoot>tr>th, .table>tfoot>tr>td
+%extend_1 {
+  padding: 10px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+
+body {
+  font-family: $font_0, $font_1, $font_2, $font_3, $font_4;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: $color_mine_shaft_approx;
+  background-color: $color_green_white_approx;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 10px 10px $black_20;
+  tr {
+    border-top: 1px solid $color_green_white_approx;
+  }
+  tbody {
+    background: $color_celeste_approx;
+  }
+  thead tr {
+    border-bottom: 1px solid $color_green_white_approx;
+    border-top: 1px solid $color_tradewind_approx;
+    background: $color_tradewind_approx;
+    color: $white;
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
+
+tr {
+  &:nth-child(even) td {
+    background: linear-gradient(to bottom, $color_merino_approx 0, $color_ecru_white_approx 100%);
+  }
+  &:nth-child(odd) td {
+    background: $color_romance_approx;
+  }
+}
+
+.table>thead>tr>th {
+  @extend %extend_1;
+  vertical-align: bottom;
+  border-bottom: 2px solid $color_alto_approx;
+  text-transform: uppercase;
+}
+
+.table>thead>tr>td {
+  @extend %extend_1;
+}
+
+.table>tbody>tr>th {
+  @extend %extend_1;
+}
+
+.table>tbody>tr>td {
+  @extend %extend_1;
+}
+
+.table>tfoot>tr>th {
+  @extend %extend_1;
+}
+
+.table>tfoot>tr>td {
+  @extend %extend_1;
+}
+
+.btn-primary {
+  color: $white;
+  background-color: $color_fuscous_gray_approx;
+  border-color: $color_celeste_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 0;
+  &:hover {
+    color: $white;
+    background-color: $black;
+    border-color: $black;
+  }
+}
+
+.navbar-brand {
+  float: left;
+  padding: 15px;
+  font-size: 28px;
+  line-height: 20px;
+  height: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: $font_5, $font_0, $font_3, $font_2, $font_4;
+  span {
+    font-weight: normal;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.navbar-default {
+  background-color: $color_fuscous_gray_approx;
+  border-color: $color_celeste_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 1px 1px 10px $black;
+  .navbar-brand {
+    color: $white;
+  }
+  .navbar-nav>li>a {
+    color: $white;
+    font-weight: bold;
+    &:hover {
+      color: $color_celeste_approx;
+      background-color: transparent;
+    }
+    &:focus {
+      color: $color_celeste_approx;
+      background-color: transparent;
+    }
+  }
+}
+
+p {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
+}
+
+ol {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
+}
+
+ul {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
+}
+
+td {
+  font-family: $font_0, $font_6, $font_7, $font_8, $font_4;
+}
+
+a {
+  &:hover {
+    background-color: transparent;
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+}
+
+.row h1 {
+  font-weight: bold;
+  font-size: 20px;
+  background: $color_wedgewood_approx;
+  padding: 30px 10px;
+  color: $white;
+  margin-bottom: 0;
+}
+
+.container a.navbar-brand {
+  &:hover {
+    color: $white;
+  }
+  &:focus {
+    color: $white;
+  }
+}

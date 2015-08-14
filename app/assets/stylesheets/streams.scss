@@ -1,23 +1,23 @@
 // Place all the styles related to the Streams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.play {
-  audio,
-  i {
-    float: left;
-    margin: 5px;
-  }
-}
+// .play {
+//   audio,
+//   i {
+//     float: left;
+//     margin: 5px;
+//   }
+// }
 
-.playlist {
-  tbody tr:first-child {
-    color: #002a2a;
-    background-color: #c7c2a4;
-    td:first-child:before {
-      font-family: "Glyphicons Halflings";
-      content: "\e002";
-      float: left;
-      margin-right: 6px;
-    }
-  }
-}
+// .playlist {
+//   tbody tr:first-child {
+//     color: #002a2a;
+//     background-color: #c7c2a4;
+//     td:first-child:before {
+//       font-family: "Glyphicons Halflings";
+//       content: "\e002";
+//       float: left;
+//       margin-right: 6px;
+//     }
+//   }
+// }
