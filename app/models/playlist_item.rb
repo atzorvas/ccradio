@@ -8,7 +8,7 @@ class PlaylistItem < ActiveRecord::Base
   end
 
   def last_song_differs
-    self.stream.playlist_items.any? &&
-      self.song != self.stream.playlist_items.last.song
+    stream.playlist_items.any? &&
+      song != stream.playlist_items.last.song
   end
 end

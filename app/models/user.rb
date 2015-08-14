@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :async, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  def is_admin?
+  def admin?
     self.role && self.role.name == 'admin'
   end
 

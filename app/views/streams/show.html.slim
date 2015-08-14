@@ -28,7 +28,7 @@ table.table.table-bordered.station-info data-url="#{stream_current_song_path @st
 - else
   .alert.alert-info no playlist history
 
-- if current_user && current_user.is_admin?
+- if current_user && current_user.admin?
   = link_to 'Edit', edit_stream_path(@stream)
   '|
 = button_to 'Back', streams_path, method: :get, class: "btn btn-primary"

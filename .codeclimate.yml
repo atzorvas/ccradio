@@ -23,4 +23,8 @@ ratings:
 exclude_paths:
 - spec/**/*
 - vendor/**/*
-- db/schema.rb
+- README.md
+- db/**/*
+- bin/*
+- config/**/*
+- lib/tasks/*

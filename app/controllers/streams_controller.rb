@@ -2,7 +2,7 @@ class StreamsController < ApplicationController
   before_action :set_stream,
     only: [:show, :edit, :update, :destroy, :playlist, :current_song]
   before_action :authenticate_admin,
-    :except => [:show, :index, :playlist, :current_song, :subscription]
+    except: [:show, :index, :playlist, :current_song, :subscription]
   include Tubesock::Hijack
 
   # GET /streams
@@ -68,7 +68,7 @@ class StreamsController < ApplicationController
   def playlist
     respond_to do |format|
       format.json {
-        render :json => {
+        render json: {
           genre: @stream.title,
           url: @stream.url_play,
           history: @stream.playlist_items.order("created_at DESC")
@@ -79,10 +79,9 @@ class StreamsController < ApplicationController
   end
 
   def current_song
-    puts "called"
     item = @stream.playlist_items.last
     respond_to do |format|
-      format.json { render :json => { song: item.song, created_at: item.created_at } }
+      format.json { render json: { song: item.song, created_at: item.created_at } }
       format.html { redirect_to @stream }
     end
   end
