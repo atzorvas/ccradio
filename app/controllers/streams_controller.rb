@@ -1,6 +1,8 @@
 class StreamsController < ApplicationController
-  before_action :set_stream, only: [:show, :edit, :update, :destroy, :playlist, :current_song]
-  before_action :authenticate_admin, :except => [:show, :index, :playlist, :current_song, :subscription]
+  before_action :set_stream,
+    only: [:show, :edit, :update, :destroy, :playlist, :current_song]
+  before_action :authenticate_admin,
+    :except => [:show, :index, :playlist, :current_song, :subscription]
   include Tubesock::Hijack
 
   # GET /streams
@@ -89,7 +91,7 @@ class StreamsController < ApplicationController
     hijack do |sock|
       redis_thread = Thread.new do
         Redis.new.subscribe "songs" do |on|
-          on.message do |channel, song|
+          on.message do |_channel, song|
             sock.send_data song
           end
         end
