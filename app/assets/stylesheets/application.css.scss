@@ -18,28 +18,29 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
 body {
+  background-color: #ebe7df;
+  color: #333333;
   font-family: "century gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333333;
-  background-color: #ebe7df
 }
 
 .row h1 {
-  font-weight: bold;
-  font-size: 20px;
   background: #418a95;
-  padding: 30px 10px;
   color: #fff;
+  font-weight: bold;
+  font-size: 20;
   margin-bottom: 0;
+  padding: 30 10;
 }
 
 .table {
-  width: 100%;
+  box-shadow: 0 10 10 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20;
   max-width: 100%;
-  margin-bottom: 20px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
 .table tr {
@@ -78,51 +79,45 @@ tr:nth-child(odd) td {
 .table>tbody>tr>td,
 .table>tfoot>tr>th,
 .table>tfoot>tr>td {
-  padding: 10px;
   line-height: 1.42857143;
+  padding: 10;
   vertical-align: top;
 }
 
 .table>thead>tr>th {
-  vertical-align: bottom;
   border-bottom: 2px solid #ddd;
   text-transform: uppercase;
-}
-
-.table>thead>tr>th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
-  text-transform: uppercase;
 }
 
 .btn-primary {
   color: #fff;
   background-color: #535353;
   border-color: #ccc;
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 .btn-primary:hover {
   color: #fff;
   background-color: #000;
-  border-color: #000
+  border-color: #000;
 }
 
 .btn-primary:hover {
   color: #fff;
   background-color: #000;
-  border-color: #000
+  border-color: #000;
 }
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  font-family: "code light", "century gothic", Arial, Helvetica, sans-serif;
   font-size: 28px;
-  line-height: 20px;
-  height: 50px;
   font-weight: bold;
+  height: 50;
+  line-height: 20;
+  padding: 15px;
   text-transform: uppercase;
-  font-family: "code light", "century gothic", Arial, Helvetica, sans-serif
 }
 
 .navbar-brand span {
@@ -142,7 +137,7 @@ tr:nth-child(odd) td {
 .navbar-default {
   background-color: #535353;
   border-color: #ccc;
-  box-shadow: 1px 1px 10px #000;
+  box-shadow: 1px 1px 10 #000;
 }
 
 .navbar-default .navbar-brand {
@@ -170,7 +165,7 @@ td {
 .navbar-default {
   background-color: #535353;
   border-color: #ccc;
-  box-shadow: 1px 1px 10px #000;
+  box-shadow: 1px 1px 10 #000;
 }
 
 a:hover {
@@ -183,10 +178,10 @@ a:hover {
 }
 
 .row h1 {
-  font-weight: bold;
-  font-size: 20px;
   background: #418a95;
-  padding: 30px 10px;
   color: #fff;
+  font-size: 20;
+  font-weight: bold;
   margin-bottom: 0;
+  padding: 30 10;
 }
