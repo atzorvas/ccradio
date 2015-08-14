@@ -13,7 +13,7 @@
 - demo site: http://ccradio.tzorvas.com/
 
 ## TODO
-- [x] [s]Apply some styling <small>I know it's ugly, but this isn't my main concern for the time being</small>[/s]
+- [x] <s>Apply some styling <small>I know it's ugly, but this isn't my main concern for the time being</small></s>
 - [ ] Add Suggest Stream Form
 - [ ] Add Feedback Form
 - [ ] Audio player @home screen (currently only in each station page)
@@ -21,7 +21,7 @@
 - [ ] Add integration tests
 - [ ] Public API
 - [ ] Crawler / Automated process to search for new streams with CC-friendly content
-- [x] [s]replace ajax calls for 'now playing' sync process with websockets[/s]
+- [x] <s>replace ajax calls for 'now playing' sync process with websockets</s>
 - [suggest another](https://github.com/atzorvas/ccradio/issues/new)
 
 ## Contribute
