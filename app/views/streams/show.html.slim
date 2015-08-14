@@ -3,7 +3,7 @@ p#notice = notice
 .play
   audio src="#{@stream.url_play}" controls="" preload="preload" autoplay="true"
 
-table.table.table-bordered.station-info data-url="#{stream_current_song_path @stream}"
+table.table.table-bordered.station-info data-url="#{stream_current_song_path @stream}" stream-id="#{@stream.id}"
   thead
     tr
       th Genre
