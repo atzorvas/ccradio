@@ -1,5 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_filter :authenticate_user!
   def wordpress_hosted
     @user = User.find_for_wordpress_hosted(request.env["omniauth.auth"], current_user)
     if @user.persisted?

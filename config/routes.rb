@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
-    get '/users/auth/failure' => 'sessions#failure'
-  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :streams do
     get '/playlist' => 'streams#playlist'
     get '/current_song' => 'streams#current_song'
