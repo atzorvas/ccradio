@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/bkno/omniauth-wordpress-oauth2-plugin.git
-  revision: 8f0d6fba970d96f2bb2244a3ac678656137ed295
+  remote: git://github.com/atzorvas/omniauth-wordpress-oauth2-plugin.git
+  revision: a1b6ffad0fee63331862bfa6f52ef6b9942d985a
   specs:
     omniauth-wordpress_hosted (0.0.3)
       omniauth-oauth2

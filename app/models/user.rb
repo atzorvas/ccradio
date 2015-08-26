@@ -4,22 +4,19 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :async, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:wordpress_hosted]
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, :omniauth_providers => [:wordpress_hosted]
 
   def admin?
     self.role && self.role.name == 'admin'
   end
 
-  def self.find_for_wordpress_hosted(oauth, signed_in_user=nil)
-    if signed_in_user
-      return signed_in_user
-    else
-      user = User.find_by_uid(oauth['uid'])
-      if user.nil?
-        user = User.create!(email: oauth['info']['email'], uid: oauth['uid'], firstname: 'test', lastname: 'test')
-      end
-      user
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      # user.name = auth.info.name   # assuming the user model has a name
+      # user.image = auth.info.image # assuming the user model has an image
     end
   end
 

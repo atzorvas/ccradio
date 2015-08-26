@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def wordpress_hosted
-    @user = User.find_for_wordpress_hosted(request.env["omniauth.auth"], current_user)
+    @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Wordpress Hosted"
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated

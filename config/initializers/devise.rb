@@ -243,7 +243,12 @@ Devise.setup do |config|
     ENV['WP_OAUTH_ID'],
     ENV['WP_OAUTH_SECRET'],
     strategy_class: OmniAuth::Strategies::WordpressHosted,
-    client_options: {site: 'http://188.166.0.252/'}
+  client_options: {
+    site: 'http://188.166.0.252/'
+    # token_url: "/oauth/me",
+    # access_url: "/oauth/token",
+    # access_type: 'authentication_code'
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
