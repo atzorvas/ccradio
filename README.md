@@ -14,6 +14,9 @@
 
 ## TODO
 - [x] <s>Apply some styling <small>I know it's ugly, but this isn't my main concern for the time being</small></s>
+- [x] Authentication via WP Oauth Server
+ - [ ] Make this way the only available/accesible
+ - [ ] Register
 - [ ] Add Suggest Stream Form
 - [ ] Add Feedback Form
 - [ ] Audio player @home screen (currently only in each station page)
