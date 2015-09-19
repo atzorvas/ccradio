@@ -1,9 +1,5 @@
 p#notice = notice
 
-.play
-  audio src="" controls="" autoplay=""
-  span = icon('fa-li fa fa-spinner fa-spin fa-2x')
-
 table.table.table-bordered.station-info data-url="#{stream_current_song_path @stream}" stream-id="#{@stream.id}"
   thead
     tr
@@ -31,4 +27,4 @@ table.table.table-bordered.station-info data-url="#{stream_current_song_path @st
 - if current_user && current_user.admin?
   = link_to 'Edit', edit_stream_path(@stream)
   '|
-= button_to 'Back', streams_path, method: :get, class: "btn btn-primary"
+= link_to 'Back', streams_path, class: "btn btn-primary", id: "refresh-main-content", onclick: "event.preventDefault(); Page.refresh({url: '#{streams_path}', onlyKeys: ['main-content']});", 'full-refresh' => 'true'

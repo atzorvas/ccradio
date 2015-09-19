@@ -11,8 +11,50 @@
 //  about supported directives.
 //
 //= require jquery
+//= require jplayer/jquery.jplayer.js
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+//= require turbograft
 //= require_tree .
 
+function playerDef(title, link) {
+  var stream = {
+    title: title, //"Everything",
+    mp3: link //"http://stream.creativecommons.gr:8000/live0",
+  },
+  ready = false;
+
+  $("#jquery_jplayer_1").jPlayer({
+    ready: function (event) {
+      ready = true;
+      $(this).jPlayer("setMedia", stream).jPlayer("play");
+    },
+    pause: function() {
+      $(this).jPlayer("clearMedia");
+    },
+    error: function(event) {
+      if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+        // Setup the media stream again and play it.
+        $(this).jPlayer("setMedia", stream).jPlayer("play");
+      }
+    },
+    supplied: "mp3",
+    preload: "none",
+    wmode: "window",
+    useStateClassSkin: true,
+    autoBlur: false,
+    keyEnabled: true
+  });
+}
+
+$(document).on("page:load page:update", function(){
+  // Change Station
+  $('.player-link').on('click', function(evt) {
+    evt.preventDefault();
+    $("#jquery_jplayer_1").jPlayer( "destroy" );
+
+    var link = evt.target.getAttribute('data-url');
+    var title = evt.target.getAttribute('data-title');
+    playerDef(title, link);
+  });
+});

@@ -9,7 +9,10 @@ html
   body data-action="#{action_name}"
     = render 'layouts/nav'
     .container
+      .row refresh-never="" tg-static=""
+        .play
+          = render 'layouts/player'
       - flash.each do |name, msg|
         div class="alert #{bootstrap_class_for(name)}" = msg
-      .row
+      .row#main-content refresh="main-content"
         = yield

@@ -10,9 +10,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster.
-# Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -24,6 +21,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'turbograft'
 
 group :development, :test do
   gem 'pry-rails'
@@ -58,3 +57,7 @@ gem 'sidekiq-scheduler'
 gem 'devise-async'
 gem 'tubesock'
 gem 'omniauth-wordpress_hosted', github: 'atzorvas/omniauth-wordpress-oauth2-plugin'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jplayer'
+end

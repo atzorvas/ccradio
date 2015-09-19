@@ -5,10 +5,9 @@ nav.navbar.navbar-default.navbar-static-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="#{root_path}"
-        |cc
-        span
-          |radio
+      = link_to root_path, class: 'navbar-brand', id: 'refresh-root', refresh: "main-content", onclick: "event.preventDefault(); Page.refresh({url: '#{root_path}', onlyKeys: ['main-content']});" do
+        |CC
+        span RADIO
     .collapse.navbar-collapse
       / ul.nav.navbar-nav
       ul.nav.navbar-nav.navbar-right

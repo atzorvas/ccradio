@@ -5,19 +5,16 @@ table.table.table-stripped
     tr
       th Title
       th Song
-      th Mount
-      th
+      th Play
       - if current_user && current_user.admin?
         th
         th
-
   tbody
     - @streams.each do |stream|
       tr stream-id="#{stream.id}"
-        td.title = link_to stream.title, stream
+        td.title = link_to stream.title, stream, id: "refresh-stream-#{stream.id}", refresh: "main-content", onclick: "event.preventDefault(); Page.refresh({url: '#{stream_path(stream)}', onlyKeys: ['main-content']});"
         td.song = stream.playlist_items.last.song rescue nil
-        td.mount = stream.mount
-        td = link_to 'Show', stream
+        td.play = link_to "Play #{stream.title}", '#', class: 'player-link', 'data-title': stream.title, 'data-url': stream.url_play, id: "play-stream-#{stream.id}"
         - if current_user && current_user.admin?
           td = link_to 'Edit', edit_stream_path(stream)
           td = link_to 'Destroy', stream, data: {:confirm => 'Are you sure?'}, :method => :delete
@@ -27,4 +24,4 @@ br
 - if current_user && current_user.admin?
   = link_to 'New Stream', new_stream_path
 - else
-  = link_to 'Suggest Stream', '#'
+  = link_to_if false, 'Suggest Stream', '#'

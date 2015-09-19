@@ -16,21 +16,61 @@ $ ->
           $(this).text(song.song).fadeIn 500
           return
 
-  if action == "show"
-    $('.play i').hide()
-    yourFn = ->
-      $('.play i').show()
-      $('audio').attr('src', $(".station-info td:nth-child(2)").text().trim())
-    setTimeout( yourFn, 1000 )
-    $("audio").on "play", ->
-      $('.play i').remove()
+$ ->
+  stream =
+    title: "Everything"
+    mp3: "http://stream.creativecommons.gr:8000/live0"
+    song: "Test Song"
 
-    stream_id = parseInt($(".station-info").attr('stream-id'))
-    socket.onmessage = (event) ->
-      if event.data.length
-        song = JSON.parse(event.data).song
-        if song.stream_id == stream_id
-          te = $("<tr><td>#{song.song}</td><td>#{song.created_at}</td></tr>")
-          te.hide()
-          $("table.playlist").prepend(te)
-          te.fadeIn 500
+  ready = false
+  $("#jquery_jplayer_1").jPlayer
+    ready: (event) ->
+      ready = true
+      $(this).jPlayer("setMedia", stream).jPlayer "play"
+
+    pause: ->
+      $(this).jPlayer "clearMedia"
+
+    error: (event) ->
+
+      # Setup the media stream again and play it.
+      $(this).jPlayer("setMedia", stream).jPlayer "play"  if ready and event.jPlayer.error.type is $.jPlayer.error.URL_NOT_SET
+
+    supplied: "mp3"
+    preload: "none"
+    wmode: "window"
+    useStateClassSkin: true
+    autoBlur: false
+    keyEnabled: true
+
+
+  # Change Station
+  $(".player-link").on "click", (evt) ->
+    evt.preventDefault()
+    $("#jquery_jplayer_1").jPlayer "destroy"
+    ready = false
+    link = evt.target.getAttribute("data-url")
+    title = evt.target.getAttribute("data-title")
+    stream =
+      title: title
+      mp3: link
+
+    $("#jquery_jplayer_1").jPlayer
+      ready: (event) ->
+        ready = true
+        $(this).jPlayer("setMedia", stream).jPlayer "play"
+
+      pause: ->
+        $(this).jPlayer "clearMedia"
+
+      error: (event) ->
+
+        # Setup the media stream again and play it.
+        $(this).jPlayer("setMedia", stream).jPlayer "play"  if ready and event.jPlayer.error.type is $.jPlayer.error.URL_NOT_SET
+
+      supplied: "mp3"
+      preload: "none"
+      wmode: "window"
+      useStateClassSkin: true
+      autoBlur: false
+      keyEnabled: true
