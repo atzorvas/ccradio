@@ -19,8 +19,7 @@
  - [ ] Register
 - [ ] Add Suggest Stream Form
 - [ ] Add Feedback Form
-- [ ] Audio player @home screen (currently only in each station page)
- - [ ] Better-looking player
+- [x] Audio player @home screen <s>(currently only in each station page)</s>
 - [ ] Add integration tests
 - [ ] Public API
 - [ ] Crawler / Automated process to search for new streams with CC-friendly content
