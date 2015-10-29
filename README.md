@@ -17,8 +17,8 @@
 - [x] Authentication via WP Oauth Server
  - [ ] Make this way the only available/accesible
  - [ ] Register
-- [ ] Add Suggest Stream Form
-- [ ] Add Feedback Form
+- [x] Add Suggest Stream Form
+- [x] Add Feedback Form
 - [x] Audio player @home screen <s>(currently only in each station page)</s>
 - [ ] Add integration tests
 - [ ] Public API
