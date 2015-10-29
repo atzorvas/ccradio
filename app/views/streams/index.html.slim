@@ -18,12 +18,3 @@ table.table.table-stripped
         - if current_user && current_user.admin?
           td = link_to 'Edit', edit_stream_path(stream)
           td = link_to 'Destroy', stream, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-- if current_user && current_user.admin?
-  = link_to 'New Stream', new_stream_path
-- else
-  = link_to 'Suggest Stream', 'http://goo.gl/forms/C3Jf5tRn5L'
-= link_to 'Feedback Form', 'http://goo.gl/forms/mAl0qyIQk2'
-

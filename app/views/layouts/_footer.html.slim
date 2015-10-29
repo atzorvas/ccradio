@@ -1,0 +1,10 @@
+footer
+  - if current_user && current_user.admin?
+    = link_to 'New Stream', new_stream_path
+  - else
+    = link_to 'Suggest Stream', 'http://goo.gl/forms/C3Jf5tRn5L'
+  = " | "
+  = link_to 'Feedback Form', 'http://goo.gl/forms/mAl0qyIQk2'
+  br
+  = link_to('Όροι χρήσης', '#') + " -  " + link_to('Βεβαίωση', '#')+ "  -  Υλοποίηση & συντήρηση από "+link_to('ΕΕΛ/ΛΑΚ', '#')+" με χρήση των Ανοιχτών Λογισμικών #{link_to('Django', '#')} και #{link_to('Icecast', '#')}".html_safe
+

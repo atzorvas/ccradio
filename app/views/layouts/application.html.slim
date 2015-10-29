@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title CC Radio
+    title CreativeCommons Radio
     = stylesheet_link_tag    'application', media: 'all',
                              'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true, async: Rails.env.production?
@@ -16,3 +16,4 @@ html
         div class="alert #{bootstrap_class_for(name)}" = msg
       .row#main-content refresh="main-content"
         = yield
+    = render 'layouts/footer'
