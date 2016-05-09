@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '~> 4.2.5'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -49,8 +49,8 @@ gem 'rails_best_practices', group: :development
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
-gem 'nokogiri'
-gem 'devise'
+gem 'nokogiri', '>= 1.6.7.2'
+gem 'devise', '>= 3.5.4'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'sidekiq-scheduler'
@@ -61,3 +61,4 @@ gem 'omniauth-wordpress_hosted', github: 'atzorvas/omniauth-wordpress-oauth2-plu
 source 'https://rails-assets.org' do
   gem 'rails-assets-jplayer'
 end
+gem 'rails-html-sanitizer', '~> 1.0.3'
